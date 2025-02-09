@@ -1,8 +1,15 @@
 Test cases
 ==========
 Input 33# => output: E 
-Input 227*#) => output: B 
+Input 227*# => output: B 
 Input 4433555 555666# => output: HELLO 
 Input 8 88777444666*664# => output: TURING
+Input 3333# => output: D
+Input 33333# => output: E
+Input 333333# => output: F
+Input 77777# => output: P
+Input 777777# => output: Q
+Input 7777777# => output: R
+Input 77777777# => output: S
 Input 444777666 660777766633389277733# => output: IRON SOFTWARE
 Input 9330555666888330444777666 66# => output: WE LOVE IRON

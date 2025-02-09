@@ -98,6 +98,16 @@ namespace OldPhoneKeypad.Modules
                             // Add the same character to sameCharCount
                             // E.g., 22
                             sameCharCount += numbers[i + 1].ToString();
+
+                            if (sameCharCount.Length >= 4 && ((currentChar >= '2' && currentChar <= '6') || currentChar == '8'))
+                            {
+                                sameCharCount = sameCharCount[..^3]; // Cycle within 3 chars
+                            }
+                            else if (sameCharCount.Length >= 5 && (currentChar == '7' || currentChar == '9'))
+                            {
+                                sameCharCount = sameCharCount[..^4]; // Cycle within 4 chars
+                            }
+
                             i++;
 
                             // break out of the loop
