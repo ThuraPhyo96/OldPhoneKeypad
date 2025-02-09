@@ -57,6 +57,11 @@ namespace OldPhoneKeypad.Modules
                     Console.WriteLine("Please input the number!");
                     continue;
                 }
+                else if (!input.EndsWith(hash))
+                {
+                    Console.WriteLine("Input must end with '#'.");
+                    continue;
+                }
 
                 // Convert input into char array for iteration
                 char[]? numbers = input?.ToCharArray();
