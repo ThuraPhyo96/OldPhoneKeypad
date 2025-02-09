@@ -1,0 +1,20 @@
+OldPhonePad.Run method() step by step working
+=============================================
+1. Initialize the Dictionary to store key value pairs and take the value by key
+2. Initialize the 3 const: Star(Backspace), Hash(End of input) and Space(Delay) 
+3. Take the input that enter from console and store it into input
+4. If input is null or empty, then break out of the loop and ready for next input
+5. If input has value, then convert the input into char array for iteration
+6. Initialize the StringBuilder named output to store the convert number into letter
+7. Traverse the input using the variable i and perform the following steps:
+   1. store the current char 
+   2. If current char is Star, then if output length is > 0, remove the last char from output and increment i by 1
+   3. Else if current char is Hash, break out of the loop because the Hash is end of input
+   4. Else if current char is Space, increment i by 1 and no action
+   5. Otherwise, store the current char into sameCharCount
+      Find the same char count, If i + 1 < input?.Length && currentChar is same next char, added the sameCharCount += next char.
+	  If i == input?.Length, then break out of the loop
+   6. Try to get the mapped char from mappings Dictionary
+      If the value is valid, then appended the mapped char to the output 
+8. After completing the above steps, If the output length is > 0 then print the value string output as the result.
+9. Ready for next input 
