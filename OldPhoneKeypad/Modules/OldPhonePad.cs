@@ -4,6 +4,8 @@ namespace OldPhoneKeypad.Modules
 {
     public class OldPhonePad
     {
+        // Initialize the Dictionary to store key value pairs and take the value by key
+        // Initialize the 3 const: Star(Backspace), Hash(End of input) and Space(Delay)
         private readonly Dictionary<string, string> mappings = new()
             {
                 { "0", " "},
@@ -43,6 +45,8 @@ namespace OldPhoneKeypad.Modules
 
         public void Run()
         {
+            //  The program will keep running and asking for input until the user explicitly exits
+            //  (E.g., by pressing Ctrl+C or closing the console)
             while (true)
             {
                 Console.WriteLine("Input the number to change letter:");
@@ -54,41 +58,55 @@ namespace OldPhoneKeypad.Modules
                     continue;
                 }
 
+                // Convert input into char array for iteration
                 char[]? numbers = input?.ToCharArray();
                 StringBuilder output = new();
                 int i = 0;
 
                 while (i < numbers?.Length)
                 {
+                    // Take the current char and stored
                     char currentChar = numbers[i];
                     if (currentChar == star)
                     {
                         if (output.Length > 0)
                         {
+                            // Remove the last char from output because the star is backspace
                             output.Remove(output.Length - 1, 1);
                             i++;
                         }
                     }
                     else if (currentChar == hash)
                     {
+                        // break out of the loop because the hash is end of input
                         break;
                     }
                     else if (currentChar == space)
                     {
+                        // increment i by 1 because the space is delay
                         i++;
                     }
                     else
                     {
+                        // make the key to take the value from Dictionary
+                        // E.g., 2
                         string sameCharCount = currentChar.ToString();
+
+                        // Find the same characters
                         while (i + 1 < input?.Length && currentChar == numbers[i + 1])
                         {
+                            // Add the same character to sameCharCount
+                            // E.g., 22
                             sameCharCount += numbers[i + 1].ToString();
                             i++;
 
+                            // break out of the loop
                             if (i == input?.Length)
                                 break;
                         }
 
+                        // Take the value by key and append the mapped char into output
+                        // E.g., mappings["22"], B
                         if (mappings.TryGetValue(sameCharCount, out string? mappedChar))
                         {
                             output.Append(mappedChar);
@@ -98,6 +116,7 @@ namespace OldPhoneKeypad.Modules
                     }
                 }
 
+                // the output has value, print it
                 if (output.Length > 0)
                     Console.WriteLine(output.ToString());
 
