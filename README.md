@@ -1,4 +1,6 @@
-# OldPhoneKeypad
-To convert the numbers into alphabetical letters and will input from user
+# Feature.OldPhoneKeypadApp
+To convert the numbers that input from console into alphabetical letters
+
+```csharp
 OldPhonePad oldPhonePad = new();
 oldPhonePad.Run();
