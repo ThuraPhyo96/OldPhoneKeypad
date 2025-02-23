@@ -1,4 +1,4 @@
 ﻿using OldPhoneKeypad.Modules;
 
-OldPhonePad oldPhonePad = new();
-oldPhonePad.Run();
+OldPhoneKeyPad oldPhonePad = new();
+oldPhonePad.Process();
