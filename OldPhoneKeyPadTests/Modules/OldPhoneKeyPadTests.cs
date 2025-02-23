@@ -5,6 +5,15 @@ namespace OldPhoneKeyPadTests.Modules
     public class OldPhoneKeyPadTests
     {
         [Fact]
+        public void ShouldIgnoreDelaysAndResetKeyPress()
+        {
+            var keyPad = new OldPhoneKeyPad();
+            string input = "222 2 22#";
+            string result = keyPad.ConvertToText(input);
+            Assert.Equal("CAB", result);
+        }
+
+        [Fact]
         public void ShouldConvertNumbersToLetters()
         {
             var keyPad = new OldPhoneKeyPad();
@@ -14,7 +23,7 @@ namespace OldPhoneKeyPadTests.Modules
         }
 
         [Fact]
-        public void ShouldBackspaceNumbersToLetters()
+        public void ShouldHandleBackspace()
         {
             var keyPad = new OldPhoneKeyPad();
             string input = "227*#";
@@ -41,30 +50,12 @@ namespace OldPhoneKeyPadTests.Modules
         }
 
         [Fact]
-        public void ShouldHandleBackspace()
-        {
-            var keyPad = new OldPhoneKeyPad();
-            string input = "227*#";
-            string result = keyPad.ConvertToText(input);
-            Assert.Equal("B", result);
-        }
-
-        [Fact]
-        public void ShouldIgnoreDelaysAndResetKeyPress()
-        {
-            var keyPad = new OldPhoneKeyPad();
-            string input = "222 2 22#";
-            string result = keyPad.ConvertToText(input);
-            Assert.Equal("CAB", result);
-        }
-
-        [Fact]
         public void ShouldHandleInvalidInput()
         {
             var keyPad = new OldPhoneKeyPad();
-            string input = "";
+            string input = string.Empty;
             string result = keyPad.ConvertToText(input);
-            Assert.Equal("", result);
+            Assert.Equal(string.Empty, result);
         }
     }
 }
